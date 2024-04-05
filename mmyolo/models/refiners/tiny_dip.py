@@ -30,12 +30,19 @@ class TinyDIP(torch.nn.Module):
 
         return x
 
+    def soft_clip(self, x, min_val, max_val):
+        scale = (max_val - min_val) / 2
+        x = (scale * torch.tanh((x - min_val) / (max_val - min_val) + 1)) + min_val
+        return x
+
     def forward(self, x):
         params = self.compute_params(x)
 
         alpha = params[:, 0].view(-1, 1, 1, 1)
         beta = params[:, 1].view(-1, 1, 1, 1)
         gamma = params[:, 2].view(-1, 1, 1, 1)
+
+        gamma = self.soft_clip(gamma, 0.1, 2)
 
         # I(x) = alpha * I(x) + beta
         x = alpha * x + beta
