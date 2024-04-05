@@ -1,4 +1,4 @@
-_base_ = "yolov7_tiny_syncbn_fast_8x16b-300e_coco.py"
+_base_ = "./yolov7_tiny_syncbn_fast_8x16b-300e_coco.py"
 
 data_root = "./data/exdark_coco/"
 class_name = (
@@ -41,7 +41,7 @@ anchors = [
 ]
 
 max_epochs = 100
-train_batch_size_per_gpu = 16
+train_batch_size_per_gpu = 4
 train_num_workers = 8
 
 load_from = "https://download.openmmlab.com/mmyolo/v0/yolov7/yolov7_tiny_syncbn_fast_8x16b-300e_coco/yolov7_tiny_syncbn_fast_8x16b-300e_coco_20221126_102719-0ee5bbdf.pth"  # noqa
