@@ -40,7 +40,7 @@ anchors = [
     [(369, 232), (329, 457), (549, 313)],
 ]
 
-max_epochs = 40
+max_epochs = 100
 train_batch_size_per_gpu = 16
 train_num_workers = 8
 
