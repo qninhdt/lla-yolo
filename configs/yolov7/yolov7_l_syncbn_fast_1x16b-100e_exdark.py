@@ -44,7 +44,9 @@ max_epochs = 100
 train_batch_size_per_gpu = 16
 train_num_workers = 8
 
-base_lr = 0.001
+_base_.optim_wrapper.optimizer.lr = 0.001
+
+find_unused_parameters = True
 
 load_from = "https://download.openmmlab.com/mmyolo/v0/yolov7/yolov7_l_syncbn_fast_8x16b-300e_coco/yolov7_l_syncbn_fast_8x16b-300e_coco_20221123_023601-8113c0eb.pth"  # noqa
 
