@@ -1,4 +1,4 @@
-_base_ = "./yolov7_tiny_syncbn_fast_8x16b-300e_coco.py"
+_base_ = "./yolov7_l_syncbn_fast_8x16b-300e_coco.py"
 
 data_root = "./data/exdark_coco/"
 class_name = (
@@ -46,7 +46,7 @@ train_num_workers = 8
 
 base_lr = 0.001
 
-load_from = "https://download.openmmlab.com/mmyolo/v0/yolov7/yolov7_tiny_syncbn_fast_8x16b-300e_coco/yolov7_tiny_syncbn_fast_8x16b-300e_coco_20221126_102719-0ee5bbdf.pth"  # noqa
+load_from = "https://download.openmmlab.com/mmyolo/v0/yolov7/yolov7_l_syncbn_fast_8x16b-300e_coco/yolov7_l_syncbn_fast_8x16b-300e_coco_20221123_023601-8113c0eb.pth"  # noqa
 
 model = dict(
     backbone=dict(frozen_stages=4),
