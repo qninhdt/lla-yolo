@@ -46,6 +46,8 @@ train_num_workers = 8
 
 _base_.optim_wrapper.optimizer.lr = 0.001
 
+find_unused_parameters = True
+
 load_from = "https://download.openmmlab.com/mmyolo/v0/yolov7/yolov7_tiny_syncbn_fast_8x16b-300e_coco/yolov7_tiny_syncbn_fast_8x16b-300e_coco_20221126_102719-0ee5bbdf.pth"  # noqa
 
 model = dict(
