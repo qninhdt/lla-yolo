@@ -44,7 +44,7 @@ max_epochs = 100
 train_batch_size_per_gpu = 16
 train_num_workers = 8
 
-base_lr = 0.001
+_base_.optim_wrapper.optimizer.lr = 0.001
 
 load_from = "https://download.openmmlab.com/mmyolo/v0/yolov7/yolov7_tiny_syncbn_fast_8x16b-300e_coco/yolov7_tiny_syncbn_fast_8x16b-300e_coco_20221126_102719-0ee5bbdf.pth"  # noqa
 
@@ -56,21 +56,21 @@ model = dict(
     ),
 )
 
-train_pipeline = [
-    *_base_.pre_transform,
-    dict(type="mmdet.RandomFlip", prob=0.5),
-    dict(
-        type="mmdet.PackDetInputs",
-        meta_keys=(
-            "img_id",
-            "img_path",
-            "ori_shape",
-            "img_shape",
-            "flip",
-            "flip_direction",
-        ),
-    ),
-]
+# train_pipeline = [
+#     *_base_.pre_transform,
+#     dict(type="mmdet.RandomFlip", prob=0.5),
+#     dict(
+#         type="mmdet.PackDetInputs",
+#         meta_keys=(
+#             "img_id",
+#             "img_path",
+#             "ori_shape",
+#             "img_shape",
+#             "flip",
+#             "flip_direction",
+#         ),
+#     ),
+# ]
 
 train_dataloader = dict(
     batch_size=train_batch_size_per_gpu,

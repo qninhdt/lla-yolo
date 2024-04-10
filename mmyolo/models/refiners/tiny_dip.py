@@ -35,17 +35,17 @@ class TinyDIP(torch.nn.Module):
         return (torch.tanh((x - min_val) / scale - 1) + 1) * scale + min_val
 
     def forward(self, x):
-        params = self.compute_params(x)
-
+        # params = self.compute_params(x)
+        params = torch.tensor([[1.1, 0.0, 0.4]], device=x.device).repeat(x.size(0), 1)
         alpha = params[:, 0].view(-1, 1, 1, 1)
         beta = params[:, 1].view(-1, 1, 1, 1)
         gamma = params[:, 2].view(-1, 1, 1, 1)
 
-        alpha = torch.exp(self.soft_clip(alpha, 0, 1))
-        beta = self.soft_clip(beta, 0, 1)
-        gamma = self.soft_clip(gamma, 0.1, 1)
+        # alpha = torch.exp(self.soft_clip(alpha, 0, 1))
+        # beta = self.soft_clip(beta, 0, 1)
+        # gamma = self.soft_clip(gamma, 0.1, 1)
 
-        print(alpha.mean(), gamma.mean())
+        # print(alpha.mean(), gamma.mean())
 
         # I(x) = I(x) ** gamma
         x = x**gamma

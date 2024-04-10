@@ -58,21 +58,21 @@ model = dict(
     ),
 )
 
-train_pipeline = [
-    *_base_.pre_transform,
-    dict(type="mmdet.RandomFlip", prob=0.5),
-    dict(
-        type="mmdet.PackDetInputs",
-        meta_keys=(
-            "img_id",
-            "img_path",
-            "ori_shape",
-            "img_shape",
-            "flip",
-            "flip_direction",
-        ),
-    ),
-]
+# train_pipeline = [
+#     *_base_.pre_transform,
+#     dict(type="mmdet.RandomFlip", prob=0.5),
+#     dict(
+#         type="mmdet.PackDetInputs",
+#         meta_keys=(
+#             "img_id",
+#             "img_path",
+#             "ori_shape",
+#             "img_shape",
+#             "flip",
+#             "flip_direction",
+#         ),
+#     ),
+# ]
 
 train_dataloader = dict(
     batch_size=train_batch_size_per_gpu,
